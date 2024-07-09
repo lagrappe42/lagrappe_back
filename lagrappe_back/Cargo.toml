@@ -1,0 +1,14 @@
+[package]
+name = "lagrappe_back"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../domain" }
+datasource = { path = "../driven/datasource" }
+plugin_manager = { path = "../driven/plugin_manager" }
+local_settings_provider = { path = "../driven/local_settings_provider" }
+driving = { path = "../driving" }
+
+env_logger = { workspace = true }
+log = { workspace = true }

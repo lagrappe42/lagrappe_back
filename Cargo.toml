@@ -1,0 +1,14 @@
+[workspace]
+members = [
+    "domain",
+    "driving",
+    "lagrappe_back",
+    "driven/datasource",
+    "driven/plugin_manager",
+    "driven/local_settings_provider",
+]
+resolver = "2"
+
+[workspace.dependencies]
+env_logger = "0.11"
+log = "0.4"

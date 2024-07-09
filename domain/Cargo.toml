@@ -1,0 +1,8 @@
+[package]
+name = "domain"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+external_contracts = { git = "https://github.com/extendmepls/external_contracts" }
+log = { workspace = true }

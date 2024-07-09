@@ -1,0 +1,9 @@
+[package]
+name = "plugin_manager"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../../domain" }
+libloading = "0.8.4"
+log = { workspace = true }

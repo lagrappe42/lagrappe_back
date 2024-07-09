@@ -1,0 +1,9 @@
+[package]
+name = "datasource"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+domain = { path = "../../domain" }
+notify = "6.0"
+log = { workspace = true }
