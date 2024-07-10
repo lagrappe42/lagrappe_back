@@ -2,10 +2,7 @@ use std::env;
 
 use domain::{
     constants::env::ENV_SETTING_DEFAULT_FOLDER_VAR,
-    plugin,
-    preinstalled::local_settings_provider::{
-        LocalSettings, LocalSettingsError, LocalSettingsProvider, PluginSettings,
-    },
+    preinstalled::local_settings::{LocalSettings, LocalSettingsError, LocalSettingsProvider, PluginSettings},
 };
 use serde::{Deserialize, Serialize};
 const SETTING_FOLDER_NAME: &str = ".lagrappe";
@@ -14,9 +11,9 @@ const PLUGINS_DESCRIPTORS_FILE_NAME: &str = "plugins.json";
 
 #[derive(Debug)]
 pub struct LocalSettingsProviderImpl {
-    user_settings_dir: String,
-    plugins_dir: String,
-    plugins_descriptors_file: String,
+    pub user_settings_dir: String,
+    pub plugins_dir: String,
+    pub plugins_descriptors_file: String,
 }
 
 #[derive(Debug, Serialize, Deserialize)]

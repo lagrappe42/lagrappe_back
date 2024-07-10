@@ -5,7 +5,7 @@ members = [
     "lagrappe_back",
     "driven/datasource",
     "driven/plugin_manager",
-    "driven/local_settings_provider",
+    "driven/local_settings", "driven/plugin_hub",
 ]
 resolver = "2"
 

@@ -7,8 +7,11 @@ edition = "2021"
 domain = { path = "../domain" }
 datasource = { path = "../driven/datasource" }
 plugin_manager = { path = "../driven/plugin_manager" }
-local_settings_provider = { path = "../driven/local_settings_provider" }
+local_settings = { path = "../driven/local_settings" }
+plugin_hub = { path = "../driven/plugin_hub" }
 driving = { path = "../driving" }
+
+tokio = { version = "1", features = ["full"] }
 
 env_logger = { workspace = true }
 log = { workspace = true }

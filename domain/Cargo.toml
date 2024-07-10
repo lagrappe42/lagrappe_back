@@ -4,5 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-external_contracts = { git = "https://github.com/extendmepls/external_contracts" }
+#external_contracts = { git = "https://github.com/extendmepls/external_contracts" }
+external_contracts = { path = "/home/amyroshn/Documents/extendmepls_workspace/external_contracts/rust" }
+tokio = { version = "1", features = ["full"] }
 log = { workspace = true }

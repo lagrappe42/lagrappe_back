@@ -1,9 +1,14 @@
 use datasource::DataSourceImpl;
 use domain::{
     plugin::{AppExtendManager, DataSource},
-    preinstalled::local_settings_provider::LocalSettingsProvider,
+    preinstalled::local_settings::LocalSettingsProvider,
+    preinstalled::{
+        async_trait::async_trait,
+        plugin_hub::{Plugin, PluginHubError, PluginsHubService},
+    },
 };
-use local_settings_provider::LocalSettingsProviderImpl;
+use local_settings::LocalSettingsProviderImpl;
+use plugin_hub::PluginHubServiceImpl;
 use std::{env, ffi::OsStr, path::PathBuf, process::exit, thread};
 
 fn current_dir() -> String {
@@ -14,7 +19,8 @@ fn current_dir() -> String {
 }
 
 //hello
-fn main() {
+#[tokio::main]
+async fn main() {
     env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
     log::info!("Starting the application");
 
@@ -24,8 +30,17 @@ fn main() {
         manager.load_extend(OsStr::new("/home/amyroshn/Documents/extendmepls_workspace/rust_plugin_example/target/release/librust_plugin_example.so").as_ref());
     }
 
-    let local_settings_provider = LocalSettingsProviderImpl::new();
+    let local_settings_provider = LocalSettingsProviderImpl::new().unwrap();
     println!("local settings provider: {:?}", local_settings_provider);
+
+    let plugin_hub_service_impl = PluginHubServiceImpl::new();
+    println!("plugin hub service impl: {:?}", plugin_hub_service_impl);
+    let _ = plugin_hub_service_impl
+        .install(
+            local_settings_provider.plugins_dir.as_str(),
+            plugin_hub_service_impl.get_all().await.get(0).unwrap(),
+        )
+        .await;
 
     /*
 
